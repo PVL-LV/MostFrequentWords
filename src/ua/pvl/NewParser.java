@@ -36,8 +36,6 @@ public class NewParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         System.out.println("Done!!!");
     }
 }

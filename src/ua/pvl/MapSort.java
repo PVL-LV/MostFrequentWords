@@ -25,19 +25,18 @@ public class MapSort {
         return sortedMap;
     }
 
-    //new code
     public Map<String,Integer> leftOnlyGivenNumberOfWords(Map<String, Integer> listOfWords, int numberOfWords) {
 
         int itemNum = numberOfWords;
 
         Map<String, Integer> hm = listOfWords;
 
-        // code to left only necessary number of most frequent words in map
         for (int i = 0; i < (hm.size() - itemNum); i++) {
             for(Iterator<Map.Entry<String, Integer>> it = hm.entrySet().iterator(); it.hasNext(); ) {
                 Map.Entry<String, Integer> entry = it.next();
-                if (hm.size() - itemNum > i)
+                if (hm.size() - itemNum > i) {
                     it.remove();
+                }
             }
         }
         return listOfWords;

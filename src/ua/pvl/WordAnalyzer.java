@@ -3,7 +3,7 @@ package ua.pvl;
 public class WordAnalyzer {
     private String result;
     private String leng;
-    private String numWords;  //new code
+    private String numWords;
     private String [] args = null;
     private String outputPath = null;
 
@@ -25,19 +25,16 @@ public class WordAnalyzer {
         args [1] = leng;
     }
 
-    //new code
-
     public void setHowManyWords(Integer nWords) {
         this.numWords = nWords.toString();
         numWords = "numberOfWords=" + numWords;
         args [2] = numWords;
     }
-    // end of new code
 
     public void setOutputPath(String outputPath) {
         this.outputPath = outputPath;
         String outPath = "outputPath" + outputPath;
-        args [3] = outPath;  //change 2 to 3
+        args [3] = outPath;
     }
 
     public void executeWordCounter() {

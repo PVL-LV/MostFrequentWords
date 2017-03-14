@@ -50,7 +50,6 @@ public class FileReaderAndWriter {
         }
     }
 
-
     public void writeFile()  throws IOException  {
 
         String[] words = fullBook.split(" ");
@@ -62,8 +61,7 @@ public class FileReaderAndWriter {
 
         MapSort mapSort = new MapSort();
         listOfWords = mapSort.sortByValue(listOfWords);
-        listOfWords = mapSort.leftOnlyGivenNumberOfWords(listOfWords, numberOfWords); // new code
-
+        listOfWords = mapSort.leftOnlyGivenNumberOfWords(listOfWords, numberOfWords);
 
         String wfp;
         PrintWriter pw;
@@ -77,10 +75,9 @@ public class FileReaderAndWriter {
 
         try {
             for (Map.Entry<String, Integer> entry : listOfWords.entrySet()) {
-                wfp = (entry.getKey() + " / " + entry.getValue() + "\r\n");
+                wfp = (entry.getKey() + " = " + entry.getValue() + "\r\n");
 
                 pw.write(wfp);
-
             }
         }finally {
             pw.flush();

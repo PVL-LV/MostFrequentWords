@@ -10,7 +10,7 @@ public class ValidationException extends Exception {
     }
 
     public String getMessage() {
-        return "You have to put correct input Path";
+        return "You have to put correct input Path (inputPath=/your/input/path)";
     }
 
 }
