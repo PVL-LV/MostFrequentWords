@@ -1,6 +1,8 @@
 package ua.pvl;
 
 
+import com.sun.xml.internal.bind.v2.TODO;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.List;
@@ -56,7 +58,10 @@ public class FileReaderAndWriter {
 
         for (String i : words) {
             AddToMap atm = new AddToMap();
-            atm.addWordToMap(listOfWords, i.trim().toLowerCase());
+            i = i.replaceAll("[^A-Za-zА-Яа-я]", " ");
+            i = i.trim();
+            i = i.toLowerCase();
+            atm.addWordToMap(listOfWords, i);
         }
 
         MapSort mapSort = new MapSort();
@@ -67,10 +72,11 @@ public class FileReaderAndWriter {
         PrintWriter pw;
 
         if (outPath != null) {
-            pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outPath)));
+            pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outPath))); //
 
         } else {
             pw = new PrintWriter(new OutputStreamWriter(System.out, "UTF-8"), true);
+            // TODO solve problem with cyrillic words written to output file
         }
 
         try {
