@@ -1,12 +1,6 @@
 package ua.pvl;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MapSort {
 
@@ -36,14 +30,16 @@ public class MapSort {
 
         int itemNum = numberOfWords;
 
+        Map<String, Integer> hm = listOfWords;
+
         // code to left only necessary number of most frequent words in map
-
-
-        for (int i = 0; i > itemNum; i++) {
-
+        for (int i = 0; i < (hm.size() - itemNum); i++) {
+            for(Iterator<Map.Entry<String, Integer>> it = hm.entrySet().iterator(); it.hasNext(); ) {
+                Map.Entry<String, Integer> entry = it.next();
+                if (hm.size() - itemNum > i)
+                    it.remove();
+            }
         }
-
-
-            return listOfWords;
+        return listOfWords;
     }
 }
