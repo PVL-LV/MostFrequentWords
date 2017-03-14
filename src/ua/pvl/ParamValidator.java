@@ -8,15 +8,12 @@ public class ParamValidator {
     List <ParameterDefiner> commandList = new ArrayList<>();
     List <UserParameters> userCommandList = new ArrayList<>();
 
-
     public ParamValidator(List<ParameterDefiner> commandList,List <UserParameters> userCommandList) {
         this.commandList = commandList;
         this.userCommandList = userCommandList;
     }
 
     public void validate() throws ValidationException {
-
-
 
         for (ParameterDefiner p : commandList) {
             String defComName = p.getName();
@@ -28,7 +25,6 @@ public class ParamValidator {
                 String userComName = up.getName();
                 String userComValue = up.getValue();
 
-
                 if (defComName.equals(userComName) && userComValue != null && userComValue.length() > 0) {
                     if (defComType.equals(ParameterDefiner.INTEGER_TYPE) && !isInteger(userComValue)) {
                         throw new ValidationException("Value for parameter < " + userComValue + "> should be an Integer");
@@ -39,7 +35,6 @@ public class ParamValidator {
             if (defComRequired) {
                 throw new ValidationException("Required param " + p.getName() + " is not found");
             }
-
         }
     }
 
@@ -51,5 +46,4 @@ public class ParamValidator {
             return Boolean.FALSE;
         }
     }
-
 }
