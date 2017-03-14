@@ -3,6 +3,9 @@ package ua.pvl;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        NewParser np = new NewParser();
+
+        np.executeParser(args);
     }
 }
