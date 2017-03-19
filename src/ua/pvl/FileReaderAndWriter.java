@@ -1,9 +1,7 @@
 package ua.pvl;
 
-
-import com.sun.xml.internal.bind.v2.TODO;
-
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,11 +70,10 @@ public class FileReaderAndWriter {
         PrintWriter pw;
 
         if (outPath != null) {
-            pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(outPath))); //
+            pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream(new File(outPath), true), StandardCharsets.UTF_8));
 
         } else {
             pw = new PrintWriter(new OutputStreamWriter(System.out, "UTF-8"), true);
-            // TODO solve problem with cyrillic words written to output file
         }
 
         try {
